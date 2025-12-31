@@ -48,14 +48,6 @@ Simular correctamente este escenario en Java garantizando:
 
 ---
 
-## 🗂️ Estructura del proyecto
-CentroCopiasBiblioteca/
-│
-├── Main.java
-├── Estudiante.java
-└── CentroCopias.java
-
-
 ### 📌 Descripción de las clases
 
 #### `Main`
