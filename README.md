@@ -48,28 +48,6 @@ Simular correctamente este escenario en Java garantizando:
 
 ---
 
-### 📌 Descripción de las clases
-
-#### `Main`
-- Crea los 5 estudiantes (hilos)
-- Controla la duración del programa (20 segundos)
-- Detiene correctamente todos los hilos
-- Muestra el resumen final
-
-#### `Estudiante`
-- Representa a un estudiante (un hilo)
-- Ejecuta el ciclo estudiar → copiar → estudiar
-- Cuenta cuántas veces ha hecho copias
-
-#### `CentroCopias`
-- Gestiona las 2 máquinas de copiado
-- Controla el acceso concurrente con `synchronized`
-- Usa `wait()` cuando no hay máquinas libres
-- Usa `notifyAll()` al liberar una máquina
-
-
----
-
 ## ▶️ Cómo ejecutar el proyecto
 
 1. Clona el repositorio:
