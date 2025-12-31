@@ -1,0 +1,105 @@
+Proyecto Java: “Centro de Copias de la Biblioteca”
+Lenguaje: Java
+
+## Contexto
+En una biblioteca hay un centro de copias utilizado por estudiantes.
+• Hay 5 estudiantes que quieren hacer copias de sus apuntes.
+• El centro dispone de 2 máquinas de copiado.
+• Cada máquina solo puede ser usada por un estudiante a la vez.
+Los estudiantes trabajan de forma simultánea y deben esperar si no hay máquinas
+libres.
+
+## Objetivo del proyecto
+Simular en Java el funcionamiento del centro de copias usando programación
+concurrente, garantizando:
+• Uso correcto de hilos
+• Exclusión mutua
+• Coordinación entre hilos con synchronized
+• Espera y notificación (wait() / notify())
+
+
+## Enunciado:
+
+Existen 5 estudiantes, cada uno representado por un hilo.
+Cada estudiante repite el siguiente ciclo:
+1. Estudia (espera un tiempo aleatorio)
+2. Va al centro de copias
+3. Solicita una máquina
+4. Hace las copias
+5. Libera la máquina y vuelve a estudiar
+
+## Requisitos técnicos
+Hilos
+• Cada estudiante debe ser un hilo (Runnable o Thread).
+• Deben existir exactamente 5 estudiantes.
+
+Recursos compartidos
+• Existen 2 máquinas de copiado.
+• Cada máquina solo puede ser usada por un estudiante a la vez.
+
+
+Sincronización (obligatoria)
+• La gestión de las máquinas debe hacerse en una clase central (por ejemplo
+CentroCopias).
+• El acceso debe estar protegido con synchronized.
+Cuando no haya máquinas libres:
+• El estudiante debe esperar (wait()).
+• Cuando una máquina se libere:
+o Se debe notificar a los estudiantes en espera (notify() o notifyAll()).
+
+Control correcto de la espera
+• No puede haber esperas activas (while(true) sin wait()).
+• El acceso debe estar correctamente controlado para evitar:
+o Dos estudiantes usando la misma máquina
+o Errores de sincronización
+
+Salida por consola
+Debe verse claramente qué ocurre en el sistema:
+Estudiante 2 está estudiando
+Estudiante 2 solicita máquina
+Estudiante 2 usa máquina 1
+Estudiante 2 termina y libera máquina 1
+
+
+Control de ejecución
+• El programa se ejecutará durante 20 segundos.
+• Al finalizar:
+o Todos los hilos deben finalizar correctamente
+o Se mostrará cuántas veces hizo copias cada estudiante
+
+Ejemplo final:
+Estudiante 0 hizo copias 3 veces
+Estudiante 1 hizo copias 4 veces
+Estudiante 2 hizo copias 3 veces
+Estudiante 3 hizo copias 5 veces
+Estudiante 4 hizo copias 4 veces
+
+Estructura mínima recomendada
+• Main.java
+• Estudiante.java
+• CentroCopias.java
+
+
+## Rúbrica de evaluación (sobre 10)
+
+1. Funcionamiento correcto (4 puntos)
+• 4: Funciona correctamente, sin errores ni bloqueos.
+• 2: Funciona con fallos menores.
+• 0: No funciona.
+
+2. Uso correcto de synchronized y wait/notify (3 puntos)
+• 3: Uso correcto y bien estructurado.
+• 2: Uso básico con pequeños errores.
+• 1: Uso incorrecto.
+• 0: No usa sincronización.
+
+3. Gestión correcta del recurso compartido (2 puntos)
+• 2: Nunca dos estudiantes usan la misma máquina.
+• 1: Fallos puntuales.
+• 0: Gestión incorrecta.
+
+7
+4. Salida clara por consola (1 punto)
+• 1: Se entiende perfectamente qué hace cada hilo.
+• 0: Salida confusa o inexistente.
+Total: 10 puntos
